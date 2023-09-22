@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="../style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Item Form</title>
+</head>
+
+<body>
+    <h1>Select an Item</h1>
+    <a href="/getlist">
+        <button id="centeredButton">Show All List</button>
+    </a>
+
+    <form id="itemForm" action="/api/addItem" method="POST">
+        <select id="itemSelect" onchange="populateFields()" required>
+            <option value="">Select an item</option>
+            <% items.forEach(function(item) { %>
+                <option value="<%= item.item %>">
+                    <%= item.item %>
+                </option>
+                <% }); %>
+        </select>
+        <input type="hidden" id="selectedItemHidden" name="selectedItem" value="" required>
+        <br>
+        <br>
+        <!-- Use radio buttons for selecting a shift -->
+        <label>Select a shift:</label><br>
+        <input type="radio" id="M-shift" name="shift" value="M-shift" required>
+        <label for="M-shift">M-shift</label><br>
+
+        <input type="radio" id="E-shift" name="shift" value="E-shift" required>
+        <label for="E-shift">E-shift</label><br>
+
+        <input type="radio" id="N-shift" name="shift" value="N-shift" required>
+        <label for="N-shift">N-shift</label><br>
+
+        <br>
+        <br>
+
+        <label for="date">Device Date:</label>
+        <input type="date" id="date" name="date" required><br>
+
+        <label for="engineer">Engineer Name:</label>
+        <input type="text" id="engineer" name="engineer" required><br>
+
+        <label for="dayEngineerCount">Day Engineer Count:</label>
+        <input type="number" id="dayEngineerCount" name="dayEngineerCount" required><br>
+
+        <label for="code">Code:</label>
+        <input type="text" id="code" name="code" readonly required>
+        <br>
+
+        <label for="unit">Unit:</label>
+        <input type="text" id="unit" name="unit" readonly required>
+        <button type="submit">Submit</button>
+    </form>
+
+
+    <script>
+
+        document.getElementById('itemSelect').addEventListener('change', function () {
+            const selectedItem = this.value;
+            console.log(selectedItem);
+            document.getElementById('selectedItemHidden').value = selectedItem;
+        });
+
+
+        // Define the item data
+        const itemData = [
+            {
+                "item": "Another Item",
+                "code": "PIR-5108B",
+                "unit": "kg/cm²"
+            },
+            {
+                "item": "Condenser 1 Temp. (For SPB.)",
+                "code": "on Panel",
+                "unit": "C"
+            },
+            {
+                "item": "Condenser 2 Temp. (For poly pipe line)",
+                "code": "on Panel",
+                "unit": "C"
+            },
+            {
+                "item": "Condenser 3 Temp. (For SPB.)",
+                "code": "on Panel",
+                "unit": "C"
+            },
+            {
+                "item": "DOW DH5148DH Temp. (PV) (For SPB) SPB Temp. (SPB B1)",
+                "code": "PIR-7951",
+                "unit": "kg/cm2"
+            },
+            {
+                "item": "Dow RP temp (Actual valve) Pressure 7951 (Set valve)",
+                "code": "TIR-7951",
+                "unit": "c"
+            },
+            {
+                "item": "Dow RP temp (Set valve)",
+                "code": "TIR-7951",
+                "unit": "с"
+            },
+            {
+                "item": "Example Item",
+                "code": "PIR-5108A",
+                "unit": "kg/cm2"
+            },
+            {
+                "item": "GP Inlet, Outlet Temp. & Press",
+                "code": "on Panel",
+                "unit": "C"
+            },
+            {
+                "item": "Poly press, after 5-way valve",
+                "code": "PIR-5103",
+                "unit": "kg/cm"
+            },
+            {
+                "item": "Poly press. after 3-way valve",
+                "code": "PIR-5105",
+                "unit": "kg/cm²"
+            },
+            {
+                "item": "Poly press. before 3-way valve",
+                "code": "PIR-5104",
+                "unit": "kg/cm²"
+            },
+            {
+                "item": "Poly temp. after 3-way valve",
+                "code": "TIR-5105",
+                "unit": "C"
+            },
+            {
+                "item": "Poly temp. after 5-way valve",
+                "code": "TIR-5103",
+                "unit": "C"
+            },
+            {
+                "item": "Poly temp. before 3-way valve",
+                "code": "TIR-5104",
+                "unit": "C"
+            },
+            {
+                "item": "Poly. Press. Inlet GP POS-3",
+                "code": "TIR-5108B",
+                "unit": "C"
+            },
+            {
+                "item": "Poly. Press. Outlet GP POS-11",
+                "code": "PIR-5107B",
+                "unit": "kg/cm³"
+            },
+            {
+                "item": "Poly. Press. Outlet GP POS-3 Poly. Press. Inlet GP POS-11",
+                "code": "PIR-5107A",
+                "unit": "kg/cm2"
+            },
+            {
+                "item": "Poly. Temp Inlet GP POS-7",
+                "code": "TIR-5107A",
+                "unit": "C"
+            },
+            {
+                "item": "Poly. Temp Outlet GP POS-15",
+                "code": "TIR-5108A",
+                "unit": "C"
+            },
+            {
+                "item": "Poly. Temp Outlet GP POS-7 Poly. Temp Inlet GP POS-15",
+                "code": "TIR-5107B",
+                "unit": "C"
+            },
+            {
+                "item": "Pressure 7951 (Actual valve) DOW DH5148DH Temp. (SV) (For SPB)",
+                "code": "PIR-7951",
+                "unit": "kg/cm³"
+            },
+            {
+                "item": "SPB Temp. (SPB B2)",
+                "code": "on Panel",
+                "unit": "C"
+            }
+        ];
+
+
+        // Function to populate the fields
+        function populateFields() {
+            // Get the selected item from the dropdown
+            const selectedItem = document.getElementById("itemSelect").value;
+
+            // Find the corresponding item in the itemData array
+            const selectedData = itemData.find(item => item.item === selectedItem);
+
+            // If a matching item is found, populate the fields
+            if (selectedData) {
+                document.getElementById("code").value = selectedData.code;
+                document.getElementById("unit").value = selectedData.unit;
+            } else {
+                // If no matching item is found, clear the fields
+                document.getElementById("code").value = "";
+                document.getElementById("unit").value = "";
+            }
+        }
+
+        // Initial population of fields based on the first item in the dropdown
+        populateFields();
+    </script>
+
+
+
+</body>
+
+</html>

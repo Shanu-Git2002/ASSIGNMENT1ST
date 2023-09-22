@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+       <link rel="stylesheet" href="../style2.css">
+</head>
+<body>
+    <h1>Data Details</h1>
+    <a href="/">
+        <button>All List Item</button>
+    </a>
+    <ul>
+        <% data.forEach(function(item) { %>
+            <li class="card">
+                <strong>Item:</strong> <%= item.item %><br>
+                <strong>Shift:</strong> <%= item.shift %><br>
+                <strong>Date:</strong> <%= item.date.toDateString() %><br>
+                <strong>Engineer:</strong> <%= item.engineer %><br>
+                <strong>Day Engineer Count:</strong> <%= item.dayEngineerCount %><br>
+                <strong>Code:</strong> <%= item.code %><br>
+                <strong>Unit:</strong> <%= item.unit %><br>
+            </li>
+        <% }); %>
+    </ul>
+   
+</body>
+</html>

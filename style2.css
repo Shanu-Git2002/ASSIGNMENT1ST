@@ -1,0 +1,59 @@
+body {
+ 
+
+}
+
+.card {
+    width: 50%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+h1 {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+strong {
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+
+button {
+    font-size: larger;
+    font-weight: 30px;
+    display: block;
+    margin: 0 auto;
+    width: 30%;
+    background-color: rgb(186, 7, 7);
+    color: white; /* Add text color to make it visible on a black background */
+    padding: 10px; /* Add padding for better button appearance */
+    text-align: center; /* Center text within the button */
+    text-decoration: none; /* Remove underline from the button */
+    border: none; /* Remove border from the button */
+    cursor: pointer;
+   margin-bottom: 20px;
+
+}
+
+button:hover {
+    background-color: #0056b3;
+}

@@ -1,0 +1,75 @@
+/* Style the form header */
+h1 {
+    color: black;
+    font-size: 24px;
+    margin-bottom: 20px;
+    background-color: black;
+}
+
+/* Style the form container */
+#itemForm {
+    width: 300px;
+    margin: 0 auto;
+}
+
+/* Style the select element */
+#itemSelect {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style the radio buttons and labels */
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+/* Style the text input fields */
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style the submit button */
+button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style the button on hover */
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+#centeredButton {
+    font-size: larger;
+    font-weight: 30px;
+    display: block;
+    margin: 0 auto;
+    width: 30%;
+    background-color: rgb(186, 7, 7);
+    color: white; /* Add text color to make it visible on a black background */
+    padding: 10px; /* Add padding for better button appearance */
+    text-align: center; /* Center text within the button */
+    text-decoration: none; /* Remove underline from the button */
+    border: none; /* Remove border from the button */
+    cursor: pointer;
+   margin-bottom: 20px;
+}
+
+#centeredButton:hover {
+    background-color: #850101; /* Change to a slightly different shade of red on hover */
+}
+
+
